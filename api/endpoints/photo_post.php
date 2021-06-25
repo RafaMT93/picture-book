@@ -10,12 +10,7 @@ function api_photo_post($request) {
   }
 
   $description = sanitize_text_field($request['description']);
-  $files = $request->get_files_params();
-
-  if (empty($files)) {
-    $response = new WP_Error('error', 'Dados Incompletos', ['status' => 422]);
-    return rest_ensure_response($response);
-  }
+  $files = $request->get_file_params();
 
   $response = [
     'post_author' => $user_id,
@@ -23,6 +18,7 @@ function api_photo_post($request) {
     'post_status' => 'publish',
     'post_title' => $description,
     'post_content' => $description,
+    'files' => $files,
     'meta_input' => [
       'acessos' => 0,
     ]
@@ -36,7 +32,7 @@ function api_photo_post($request) {
 
   $photo_id = media_handle_upload('img', $post_id);
   update_post_meta($post_id, 'img', $photo_id);
-  
+
   return rest_ensure_response($response);
 }
 
@@ -47,4 +43,5 @@ function register_api_photo_post() {
   ]);
 }
 add_action('rest_api_init', 'register_api_photo_post');
+
 ?>

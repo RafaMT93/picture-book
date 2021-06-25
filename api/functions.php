@@ -12,6 +12,7 @@ require_once $dirbase . '/endpoints/user_get.php';
 
 //Photo Route
 require_once $dirbase . '/endpoints/photo_post.php';
+require_once $dirbase . '/endpoints/photo_delete.php';
 
 //Update Options for img size
 update_option('large_size_w', 1000);
