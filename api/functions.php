@@ -3,7 +3,6 @@
 //remove_action('rest_api_init', 'create_initial_rest_routes', 99)
 
 //Endpoints
-
 $dirbase = get_template_directory();
 
 //User Route
@@ -13,6 +12,8 @@ require_once $dirbase . '/endpoints/user_get.php';
 //Photo Route
 require_once $dirbase . '/endpoints/photo_post.php';
 require_once $dirbase . '/endpoints/photo_delete.php';
+
+require_once $dirbase . '/endpoints/comment_post.php';
 
 //Update Options for img size
 update_option('large_size_w', 1000);
