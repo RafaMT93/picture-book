@@ -12,7 +12,9 @@ require_once $dirbase . '/endpoints/user_get.php';
 //Photo Route
 require_once $dirbase . '/endpoints/photo_post.php';
 require_once $dirbase . '/endpoints/photo_delete.php';
+require_once $dirbase . '/endpoints/photo_get.php';
 
+//Comment Route
 require_once $dirbase . '/endpoints/comment_post.php';
 require_once $dirbase . '/endpoints/comment_get.php';
 
