@@ -18,6 +18,9 @@ require_once $dirbase . '/endpoints/photo_get.php';
 require_once $dirbase . '/endpoints/comment_post.php';
 require_once $dirbase . '/endpoints/comment_get.php';
 
+//Password
+require_once $dirbase . '/endpoints/password.php';
+
 //Update Options for img size
 update_option('large_size_w', 1000);
 update_option('large_size_h', 1000);
