@@ -2,6 +2,13 @@
 
 //remove_action('rest_api_init', 'create_initial_rest_routes', 99)
 
+//remove users query
+add_filter('rest_endpoints', function ($endpoints) {
+  unset($endpoints['/wp/v2/users']);
+  unset($endpoints['/wp/v2/users/(?P<id>[\d]+)']);
+  return $endpoints;
+});
+
 //Endpoints
 $dirbase = get_template_directory();
 
@@ -18,8 +25,11 @@ require_once $dirbase . '/endpoints/photo_get.php';
 require_once $dirbase . '/endpoints/comment_post.php';
 require_once $dirbase . '/endpoints/comment_get.php';
 
-//Password
+//Password Route
 require_once $dirbase . '/endpoints/password.php';
+
+//Stats Route
+require_once $dirbase . '/endpoints/stats_get.php';
 
 //Update Options for img size
 update_option('large_size_w', 1000);
